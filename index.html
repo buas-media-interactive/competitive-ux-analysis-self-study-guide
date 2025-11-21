@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive UX Analysis: Self-Study Guide</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Print-specific styles -->
+    <style>
+        @media print {
+            .page-break { page-break-before: always; }
+            .no-print { display: none; }
+            body { font-size: 11pt; }
+            h1 { font-size: 24pt; }
+            h2 { font-size: 18pt; page-break-after: avoid; }
+            h3 { font-size: 14pt; page-break-after: avoid; }
+            .step-box, .card { page-break-inside: avoid; }
+        }
+        
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        /* Custom colors matching BUas branding */
+        :root {
+            --buas-orange: #FF6B35;
+            --buas-yellow: #F7931E;
+            --blue-info: #1c7ed6;
+            --green-success: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, var(--buas-orange) 0%, var(--buas-yellow) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .section-title {
+            color: var(--buas-orange);
+            border-bottom: 3px solid var(--buas-orange);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .subsection-title {
+            color: var(--buas-yellow);
+            margin-top: 1.5rem;
+        }
+        
+        .step-number {
+            background: var(--buas-orange);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .time-badge {
+            background: var(--green-success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .diagram-placeholder {
+            border: 3px dashed #dee2e6;
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            min-height: 200px;
+        }
+        
+        .checklist-item::before {
+            content: "☐";
+            font-size: 1.3rem;
+            margin-right: 0.75rem;
+            color: var(--buas-orange);
+        }
+        
+        .table-orange thead {
+            background: var(--buas-orange);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-0">
+        <!-- Header -->
+        <div class="header-gradient">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-2">Competitive UX Analysis</h1>
+                <p class="lead mb-1">Self-Study Guide</p>
+                <p class="mb-0">Interactive Realities Project | Week 3 | Define Phase</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Activity Overview -->
+            <div class="alert alert-warning border-start border-4 border-warning" role="alert">
+                <h5 class="alert-heading">📋 Activity Overview</h5>
+                <p class="mb-1"><strong>Time Required:</strong> 2-2.5 hours per student</p>
+                <p class="mb-1"><strong>Group Activity:</strong> Yes (with individual contributions)</p>
+                <p class="mb-1"><strong>Tool:</strong> FigJam (Figma's collaborative whiteboard)</p>
+                <p class="mb-1"><strong>Deliverable:</strong> Competitive UX Analysis (to be included in your Process Report appendix)</p>
+                <p class="mb-0"><strong>Assessment:</strong> Not graded separately - this is learning/preparation for ideation</p>
+            </div>
+
+            <!-- Why Are We Doing This -->
+            <h2 class="section-title">🎯 Why Are We Doing This?</h2>
+            
+            <div class="alert alert-light border-start border-4 border-warning">
+                <p>Before you design your own digital solution, it's essential to understand what already exists. By analyzing apps and websites that address similar topics to your project, you'll:</p>
+                <ul class="mb-2">
+                    <li><strong>Learn from existing solutions</strong> - See what works well and what doesn't</li>
+                    <li><strong>Identify opportunities</strong> - Discover gaps you can fill or improvements you can make</li>
+                    <li><strong>Gain design inspiration</strong> - Understand common patterns in your topic area</li>
+                    <li><strong>Make informed decisions</strong> - Design with knowledge of the competitive landscape</li>
+                </ul>
+                <p class="mb-0">This connects directly to the Define phase: now that you understand your users (from Week 2), let's see how others have tried to meet similar needs.</p>
+            </div>
+
+            <div class="alert alert-warning" role="alert">
+                <strong>⚠️ Important:</strong> This activity is designed to be completed at home during self-study time. Follow each step carefully - they're structured so you can work independently without teacher support.
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- Understanding Your Tools -->
+            <h2 class="section-title">🛠️ Understanding Your Tools: FigJam vs Figma</h2>
+
+            <h3 class="subsection-title">What is Figma?</h3>
+            <p>Figma is a professional design tool where you'll create your actual app or website prototypes later in this project. Think of it as your design workshop where you build polished, detailed interfaces.</p>
+
+            <h3 class="subsection-title">What is FigJam?</h3>
+            <p>FigJam is Figma's collaborative whiteboard tool - perfect for brainstorming, organizing ideas, and team collaboration. Think of it as a digital sticky-note board where you can gather information, create diagrams, and work together in real-time.</p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-orange">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>FigJam (This Activity)</th>
+                            <th>Figma (Later Prototyping)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Purpose</strong></td>
+                            <td>Brainstorming, research, collaboration</td>
+                            <td>Designing actual interfaces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tools</strong></td>
+                            <td>Sticky notes, markers, shapes, text</td>
+                            <td>Precise design tools, components, frames</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Output</strong></td>
+                            <td>Visual boards, mind maps, diagrams</td>
+                            <td>High-fidelity prototypes and mockups</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Organizing thoughts and findings</td>
+                            <td>Creating final designs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-info border-start border-4 border-info">
+                <strong>💡 Why FigJam for this activity?</strong> FigJam makes it easy to collect screenshots, add notes, and organize your competitive analysis visually. Your whole group can work on the same board simultaneously, making collaboration natural and efficient.
+            </div>
+
+            <div class="diagram-placeholder">
+                <h5>📸 Screenshot Space</h5>
+                <p class="text-muted fst-italic">[Instructor will add a screenshot of FigJam interface here]</p>
+                <p class="text-muted fst-italic mb-0">This will show you what FigJam looks like and its basic interface elements</p>
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- Template Structure -->
+            <h2 class="section-title">📐 Your FigJam Template Structure</h2>
+
+            <p>Before you start analyzing, you'll set up a FigJam board with this structure. Below is a diagram showing how to organize your workspace:</p>
+
+            <div class="diagram-placeholder" style="min-height: 400px;">
+                <h5 class="mb-3">📊 Template Diagram</h5>
+                <p class="fw-bold">You'll recreate this structure in FigJam:</p>
+                
+                <div class="text-start mx-auto" style="max-width: 700px;">
+                    <div class="card border-danger border-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold">SECTION 1: Individual Analysis Cards</h6>
+                            <p class="card-text small text-muted">(One card per student/app - arranged horizontally)</p>
+                            <div class="ms-3">
+                                <div class="card border-warning mb-2" style="background: #fff8f0;">
+                                    <div class="card-body py-2">
+                                        <small><strong>Student 1 Card: [App Name]</strong><br>
+                                        • Screenshots<br>
+                                        • Key observations<br>
+                                        • Strengths/Weaknesses</small>
+                                    </div>
+                                </div>
+                                <div class="card border-warning mb-2" style="background: #fff8f0;">
+                                    <div class="card-body py-2">
+                                        <small><strong>Student 2 Card: [App Name]</strong><br>
+                                        • Screenshots<br>
+                                        • Key observations<br>
+                                        • Strengths/Weaknesses</small>
+                                    </div>
+                                </div>
+                                <div class="card border-warning" style="background: #fff8f0;">
+                                    <div class="card-body py-2">
+                                        <small><strong>Student 3-4 Cards...</strong></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-info border-3 mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold">SECTION 2: Group Comparison Matrix</h6>
+                            <p class="card-text small text-muted mb-2">(Table comparing all apps across key criteria)</p>
+                            <small>Table with columns: App Name | First Impression | Ease of Use | Visual Appeal | Key Features | What Works Well | What Doesn't Work</small>
+                        </div>
+                    </div>
+                    
+                    <div class="card border-success border-3">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold">SECTION 3: Key Insights & Opportunities</h6>
+                            <p class="card-text small text-muted">(Group discussion summary - fill this together)</p>
+                            <small>
+                                • Common patterns we noticed<br>
+                                • What users seem to value<br>
+                                • Gaps/opportunities for our design
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info border-start border-4 border-info">
+                <strong>💡 Pro Tip:</strong> One team member should create the FigJam board and share the link with everyone. Use the template structure above to organize your board before starting the individual analysis work.
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- PHASE 1 -->
+            <h2 class="section-title">👤 PHASE 1: Individual Analysis</h2>
+            <p><span class="time-badge">⏱️ 1.5 - 2 hours</span></p>
+
+            <div class="alert alert-light border-start border-4 border-warning">
+                <p class="mb-0"><strong>In this phase, each student works independently</strong> to analyze one app or website. You'll document your findings in your individual card on the shared FigJam board.</p>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="card mb-4 step-box">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <span class="step-number">1</span>
+                        Select Your App/Website 
+                        <span class="time-badge">15 min</span>
+                    </h3>
+                    
+                    <p><strong>Choose one app or website that:</strong></p>
+                    <ul>
+                        <li>Relates to the same topic as your group project (e.g., if you're designing for campus dining, analyze a food delivery or restaurant app)</li>
+                        <li>Is currently functional and accessible (you need to actually use it)</li>
+                        <li>Is different from what your teammates are analyzing</li>
+                    </ul>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 Coordination Tip:</strong> Before selecting, quickly check with your team in your group chat to make sure you're not duplicating choices. Analyzing different apps gives your group broader insights.
+                    </div>
+
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Example Topic Matches:</h6>
+                            <ul class="mb-0">
+                                <li><strong>Campus dining project</strong> → Analyze: UberEats, Thuisbezorgd, campus restaurant websites</li>
+                                <li><strong>Study planning project</strong> → Analyze: Notion, Todoist, Google Calendar, My Study Life</li>
+                                <li><strong>Social events project</strong> → Analyze: Meetup, Eventbrite, Facebook Events</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <strong>✓ Checkpoint - You're ready to move on when:</strong>
+                            <div class="checklist-item mt-2">You've selected one app/website</div>
+                            <div class="checklist-item">Your teammates know which one you chose</div>
+                            <div class="checklist-item">You can access/use the app or website</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="card mb-4 step-box">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <span class="step-number">2</span>
+                        Explore the App/Website 
+                        <span class="time-badge">30-40 min</span>
+                    </h3>
+                    
+                    <p><strong>Now it's time to actually use what you selected.</strong> Don't just look at it - interact with it as a real user would.</p>
+
+                    <p><strong>Your exploration should include:</strong></p>
+                    <ul>
+                        <li><strong>First impression:</strong> Open the app/website fresh. What's your immediate reaction? Easy to understand or confusing?</li>
+                        <li><strong>Common user task:</strong> Try to complete a typical task (e.g., order food, create an event, find information, book something)</li>
+                        <li><strong>Navigation:</strong> Click around different sections. Can you find things easily? Do you get lost?</li>
+                        <li><strong>Key features:</strong> Identify the main things this app/website lets you do</li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Take Screenshots:</strong> As you explore, capture 4-6 screenshots of important screens or features. You'll need these for your FigJam card. Screenshots should show:
+                        <ul class="mb-0 mt-2">
+                            <li>The home/landing screen</li>
+                            <li>Main navigation or menu</li>
+                            <li>A key feature in action</li>
+                            <li>Anything that stood out (good or bad)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 What to notice while exploring:</strong>
+                        <ul class="mb-0">
+                            <li><strong>Can you figure out what to do without instructions?</strong> (This relates to intuitive design)</li>
+                            <li><strong>Do buttons and links look clickable?</strong> (This relates to affordances)</li>
+                            <li><strong>Can you tell where you are in the app?</strong> (This relates to feedback and visibility)</li>
+                            <li><strong>Does it feel easy and pleasant to use?</strong> (This relates to overall user experience)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="card mb-4 step-box">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <span class="step-number">3</span>
+                        Document Your Analysis 
+                        <span class="time-badge">45-60 min</span>
+                    </h3>
+                    
+                    <p><strong>Now organize your findings in your individual card on the FigJam board.</strong> Use sticky notes, text boxes, and your screenshots to create a visual analysis.</p>
+
+                    <h5 class="mt-4">What to include in your card:</h5>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-orange">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>What to Document</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>App/Website Name & Link</strong></td>
+                                    <td>Title of your card with the URL</td>
+                                    <td>"UberEats - ubereats.com"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>First Impression</strong></td>
+                                    <td>Your honest initial reaction when you first opened it</td>
+                                    <td>"Clean and simple. Immediately showed food near me without needing to search."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Screenshots</strong></td>
+                                    <td>4-6 images showing key screens</td>
+                                    <td>[Add your screenshots with brief captions]</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User Flow Observation</strong></td>
+                                    <td>Describe the steps to complete one main task</td>
+                                    <td>"To order: (1) See restaurants → (2) Pick one → (3) Add items to cart → (4) Checkout. Only 4 steps, very direct."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Visual Design Notes</strong></td>
+                                    <td>What do you notice about colors, text size, spacing, images?</td>
+                                    <td>"Uses lots of food photos. Big, readable text. Lots of white space so it doesn't feel cluttered."</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What Works Well</strong></td>
+                                    <td>List 3-5 strengths (what did you like as a user?)</td>
+                                    <td>"• Found what I needed quickly<br>• Big buttons, easy to tap<br>• Shows delivery time upfront"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What Doesn't Work</strong></td>
+                                    <td>List 2-4 weaknesses (what frustrated you?)</td>
+                                    <td>"• Too many pop-up notifications<br>• Hard to filter by dietary needs<br>• Checkout had too many steps"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Key Features</strong></td>
+                                    <td>What are the main things this app/site does?</td>
+                                    <td>"Order tracking, saved favorites, ratings/reviews, dietary filters"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 Writing Tip:</strong> Write as if explaining to someone who has never seen this app/website. Be specific - instead of "good navigation," say "I could find the menu in one click from any screen."
+                    </div>
+
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Good vs. Vague Documentation Examples:</h6>
+                            <p class="mb-2"><strong>❌ Vague:</strong> "The design is nice and modern."</p>
+                            <p class="mb-3"><strong>✅ Specific:</strong> "Uses a consistent blue color for all buttons. Clean layout with lots of spacing between elements makes it feel uncluttered."</p>
+                            
+                            <p class="mb-2"><strong>❌ Vague:</strong> "Navigation is confusing."</p>
+                            <p class="mb-0"><strong>✅ Specific:</strong> "I couldn't find the settings menu - I clicked three different icons before finding it. No clear label for where to access my profile."</p>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <strong>✓ Checkpoint - Your individual analysis is complete when:</strong>
+                            <div class="checklist-item mt-2">Your FigJam card has all 8 elements from the table above</div>
+                            <div class="checklist-item">You've uploaded 4-6 screenshots with captions</div>
+                            <div class="checklist-item">Your observations are specific and clear (not vague)</div>
+                            <div class="checklist-item">You've identified both strengths AND weaknesses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- PHASE 2 -->
+            <h2 class="section-title">👥 PHASE 2: Group Synthesis</h2>
+            <p><span class="time-badge">⏱️ 30-45 minutes</span></p>
+
+            <div class="alert alert-light border-start border-4 border-warning">
+                <p class="mb-0"><strong>Now work together as a group</strong> to compare findings and identify patterns across all the apps/websites you analyzed.</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="card mb-4 step-box">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <span class="step-number">4</span>
+                        Create Your Comparison Matrix 
+                        <span class="time-badge">20-25 min</span>
+                    </h3>
+                    
+                    <p>As a group, fill in the comparison table in Section 2 of your FigJam board. This creates a side-by-side view of all analyzed apps.</p>
+
+                    <p><strong>How to divide the work:</strong></p>
+                    <ul>
+                        <li>One person can create the table structure in FigJam (use shapes or the table tool)</li>
+                        <li>Each person fills in the row for their own app based on their individual analysis</li>
+                        <li>Review together to ensure consistency in how you're describing things</li>
+                    </ul>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 Collaboration Tip:</strong> You can all work on the FigJam board at the same time - you'll see each other's cursors moving! Agree on who fills which row so you don't overlap.
+                    </div>
+
+                    <h5 class="mt-4">Your comparison matrix should have these columns:</h5>
+                    <ol>
+                        <li><strong>App/Website Name</strong></li>
+                        <li><strong>First Impression</strong> (1-2 sentences each)</li>
+                        <li><strong>Ease of Use</strong> (Rate: Easy / Medium / Difficult + brief note)</li>
+                        <li><strong>Visual Appeal</strong> (Rate: High / Medium / Low + brief note)</li>
+                        <li><strong>Key Features</strong> (bullet list)</li>
+                        <li><strong>What Works Well</strong> (top 2-3 strengths)</li>
+                        <li><strong>What Doesn't Work</strong> (top 2 weaknesses)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="card mb-4 step-box">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <span class="step-number">5</span>
+                        Discuss and Identify Insights 
+                        <span class="time-badge">15-20 min</span>
+                    </h3>
+                    
+                    <p>Now that you can see all apps side-by-side, discuss what you notice as a group. Fill in Section 3 of your FigJam board with these insights.</p>
+
+                    <h5 class="mt-4">Discussion Questions to Guide Your Group:</h5>
+                    
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 About Common Patterns:</strong>
+                        <ul class="mb-0">
+                            <li>What features do most/all of these apps have in common?</li>
+                            <li>Do they organize information in similar ways?</li>
+                            <li>Are there visual design patterns that appear across multiple apps? (e.g., all use cards, all have bottom navigation, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 About What Users Value:</strong>
+                        <ul class="mb-0">
+                            <li>Looking at the "What Works Well" column - what themes do you see? (e.g., speed, simplicity, visual clarity)</li>
+                            <li>What features or design choices seemed most important for good user experience?</li>
+                            <li>Based on what worked, what do you think users care about most in this type of app?</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 About Opportunities for Your Design:</strong>
+                        <ul class="mb-0">
+                            <li>Looking at the "What Doesn't Work" column - what problems keep appearing?</li>
+                            <li>Are there user needs that none of these apps address well?</li>
+                            <li>What could your design do differently or better?</li>
+                            <li>Are there features you expected to see but didn't find?</li>
+                        </ul>
+                    </div>
+
+                    <p class="mt-4"><strong>Document 3-5 key insights</strong> in Section 3, organized under these three headings:</p>
+                    <ul>
+                        <li><strong>Common Patterns We Noticed</strong></li>
+                        <li><strong>What Users Seem to Value</strong></li>
+                        <li><strong>Gaps & Opportunities for Our Design</strong></li>
+                    </ul>
+
+                    <div class="card bg-light mt-3">
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">Example Insights (for a campus dining project):</h6>
+                            <p class="mb-2"><strong>Common Patterns:</strong> "All apps show food photos prominently. Most use a card-based layout. All include ratings/reviews."</p>
+                            <p class="mb-2"><strong>What Users Value:</strong> "Speed is crucial - users want to order in under 2 minutes. Clear pricing upfront matters. Real-time tracking reduces anxiety."</p>
+                            <p class="mb-0"><strong>Opportunities:</strong> "None integrate campus card payment. Dietary filters are weak in all apps. Could add social features for group ordering since students often eat together."</p>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <strong>✓ Checkpoint - Your group synthesis is complete when:</strong>
+                            <div class="checklist-item mt-2">Comparison matrix is filled with all apps</div>
+                            <div class="checklist-item">You've documented 3-5 key insights in Section 3</div>
+                            <div class="checklist-item">Insights are specific and reference your analysis</div>
+                            <div class="checklist-item">You've identified at least 2-3 opportunities for your own design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- Submission -->
+            <h2 class="section-title">📤 Submission & What Happens Next</h2>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Submitting Your Work</h4>
+                    
+                    <p><strong>What to submit to Brightspace:</strong></p>
+                    <ol>
+                        <li class="mb-3">
+                            <strong>Share link to your FigJam board</strong>
+                            <ul>
+                                <li>In FigJam, click the "Share" button (top right)</li>
+                                <li>Set permissions to "Anyone with the link can view"</li>
+                                <li>Copy the link</li>
+                                <li>Submit this link to Brightspace in the designated assignment area</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>OR: Export as PDF</strong>
+                            <ul>
+                                <li>In FigJam, go to the menu (☰) → Export</li>
+                                <li>Choose PDF format</li>
+                                <li>Submit the PDF file to Brightspace</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <div class="alert alert-info border-start border-4 border-info">
+                        <strong>💡 Recommendation:</strong> Do both - submit the link for easy access and also upload a PDF as backup. This ensures your instructor can access your work even if there are any technical issues.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">How This Connects to Your Project</h4>
+                    
+                    <p>Your competitive analysis will be included in the <strong>appendix of your Process Report</strong> (Part 2 of your final deliverable). You won't be separately graded on this activity, but it's valuable evidence of your research process.</p>
+
+                    <p><strong>More importantly, use these insights when you move to the Ideation phase!</strong> Your competitive analysis helps you:</p>
+                    <ul>
+                        <li>Understand what design patterns work well in your topic area</li>
+                        <li>Identify problems you can solve better than existing solutions</li>
+                        <li>Make informed design decisions based on what users value</li>
+                        <li>Avoid repeating mistakes others have made</li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Note:</strong> This is NOT about copying other apps. It's about learning from them so you can design something thoughtful and informed. Your design should address the specific needs of BUas students that you discovered in your Week 2 research.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- FAQ -->
+            <h2 class="section-title">❓ Troubleshooting & FAQ</h2>
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">What if I can't access the app I wanted to analyze?</h5>
+                            <p class="card-text mb-0">Choose a different one! Some apps require sign-up or payment - select something freely accessible. Check with your group first to avoid duplicates with their new choices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How detailed should my screenshots be?</h5>
+                            <p class="card-text mb-0">Screenshots should be clear enough that someone who hasn't used the app can understand what you're showing. Include captions that explain what we're looking at.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">What if my group members finish at different times?</h5>
+                            <p class="card-text mb-0">That's normal! Everyone should complete their individual analysis (Phase 1) before meeting for group work (Phase 2). Use your group chat to coordinate when everyone is ready for the synthesis phase.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Can I analyze a website instead of an app?</h5>
+                            <p class="card-text mb-0">Yes! Websites are perfectly fine. The analysis process is the same - you're looking at the digital experience regardless of whether it's on mobile or desktop.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">What if I don't understand some of the terms like "user flow"?</h5>
+                            <p class="card-text mb-0">Don't worry - we've explained terms in simple language throughout this guide. "User flow" just means the steps someone takes to do something (like the path from opening the app to completing a task). Focus on describing what you observe rather than using perfect terminology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Our group found similar problems in all the apps - is that okay?</h5>
+                            <p class="card-text mb-0">Absolutely! Finding common problems is actually a great insight - it shows you've identified a real opportunity that your design could address. Document this clearly in your "Gaps & Opportunities" section.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Break -->
+            <div class="page-break"></div>
+
+            <!-- Final Checklist -->
+            <h2 class="section-title">✅ Final Checklist</h2>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Before you consider this activity complete, verify:</h5>
+                    
+                    <div class="checklist-item mt-3"><strong>Individual Work (Phase 1):</strong> Each team member analyzed one different app/website</div>
+                    
+                    <div class="checklist-item"><strong>FigJam Organization:</strong> Your board has all three sections (Individual Cards, Comparison Matrix, Insights)</div>
+                    
+                    <div class="checklist-item"><strong>Visual Documentation:</strong> Each individual card includes 4-6 screenshots with captions</div>
+                    
+                    <div class="checklist-item"><strong>Complete Analysis:</strong> All 8 elements are documented for each app (name, first impression, screenshots, user flow, visual design, strengths, weaknesses, features)</div>
+                    
+                    <div class="checklist-item"><strong>Group Comparison:</strong> Matrix is complete with all apps compared side-by-side</div>
+                    
+                    <div class="checklist-item"><strong>Insights:</strong> 3-5 key insights documented, covering patterns, user values, and opportunities</div>
+                    
+                    <div class="checklist-item"><strong>Submission:</strong> Link (and/or PDF) submitted to Brightspace</div>
+                    
+                    <div class="checklist-item"><strong>Quality Check:</strong> Observations are specific and clear (not vague statements)</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success border-start border-4 border-success">
+                <h5 class="alert-heading">🎉 You're Done!</h5>
+                <p>Great work completing your competitive analysis! You now have valuable insights about existing solutions in your topic area. Keep this FigJam board accessible - you'll want to reference these insights during ideation and prototyping in the coming weeks.</p>
+                <p class="mb-0">As you move into designing your own solution, remember: the goal isn't to copy what exists, but to learn from it and create something better suited to BUas students' specific needs.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center text-muted py-4 mt-5 border-top">
+                <p class="mb-1"><strong>Interactive Realities Project</strong> | Breda University of Applied Sciences</p>
+                <p class="mb-0">Week 3 - Define Phase | Competitive UX Analysis Guide</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for interactive components) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
